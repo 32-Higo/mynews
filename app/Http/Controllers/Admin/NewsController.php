@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\News;
+
 class NewsController extends Controller
 {
     // 以下を追記
@@ -19,7 +21,7 @@ class NewsController extends Controller
         
         $this->validate($request, News::$rules);
         
-        $neews = new News;
+        $news = new News;
         $form = $request->all();
         
         if (isset($form['image'])) {
