@@ -12,7 +12,7 @@ class NewsController extends Controller
     
     public function add()
     {
-        return view('admin.profile.create');
+        return view('admin.news.create');
     }
 
         
