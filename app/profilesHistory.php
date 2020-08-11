@@ -1,15 +1,15 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class History extends Model
+class ProfilesHistory extends Model
 {
     protected $guarded = array('id');
-    
+
     public static $rules = array(
-        'news_id' => 'required',
-        'edited_at' =>'repuired',
+        'profile_id' => 'required',
+        'edited_at' => 'required',
     );
+    
 }

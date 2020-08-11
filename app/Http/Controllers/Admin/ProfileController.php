@@ -7,9 +7,12 @@ use App\Http\Controllers\Controller;
 
 use App\Profile;
 
+use Carbon\Carbon;
+
+use App\profilesHistory;
+
 class ProfileController extends Controller
 {
-    //以下を追記
     public function add()
     {
         return view('admin.profile.create');
@@ -59,7 +62,12 @@ class ProfileController extends Controller
         unset($profile_form['_token']);
         
         $profile->fill($profile_form)->save();
-        return redirect('admin/profile/edit');
+        $history = new profilesHistory;
+        $history->profile_id = $profile->id;
+        $history->edited_at = Carbon::now();
+        $history->save();
+        
+        return redirect('admin/profile/edit?id='.$request->id);
     }
      public function delete(Request $request)
     {
