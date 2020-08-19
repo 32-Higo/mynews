@@ -12,6 +12,6 @@ class ProfileController extends Controller
     {
         $profiles = Profile::all()->sortByDesc('created_at');
 
-        return view('profile.index', [ 'posts' => $profiles]);
+        return view('profile.index', ['profiles' => $profiles]);
     }
 }
